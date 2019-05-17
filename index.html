@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140390594-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-140390594-1');
+  </script>
+  <title>Produce X101 - Ranking</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="Produce X101 - Ranking">
+  <meta name="description" content="Mnet's Produce X101 ranking">
+  <meta name="keywords" content="produce, producex101, produce101, mnet, produce-x101, ranking">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta property="og:title" content="Produce X101 - Ranking">
+  <meta property="og:site_name" content="Produce X101 - Ranking">
+  <meta property="og:url" content="produce-x101.github.io/ranking">
+  <meta property="og:description" content="Mnet's Produce X101 ranking">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://produce-x101.github.io/ranking/img/logo.png">
+  <script src="./lib/vue.js"></script>
+  <link rel="stylesheet" href="./lib/fontAwesome.css">
+  <link rel="stylesheet" href="./lib/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css">
+  <script src="./js/main.js" defer></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="header">
+      <img class="logo" src="logo.png">
+    </div>
+    <div class="tableDiv">
+      <table id="mainTable" class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col" v-on:click="toggleSorting('name')">Name{{getSortIcon('name')}}</th>
+            <th scope="col" v-on:click="toggleSorting('age')">Age{{getSortIcon('age')}}
+            <th scope="col" v-on:click="toggleSorting('agencyName')">Company{{getSortIcon('agencyName')}}
+            </th>
+            <th class="ctn" title="Initial Evaluation" scope="col" v-on:click="toggleSorting('evaluation')">
+              Evaluation{{getSortIcon('evaluation')}}
+            </th>
+            <th class="ctn" title="X1-MA Evaluation" scope="col" v-on:click="toggleSorting('reevaluation')">
+              Re-Evaluation{{getSortIcon('reevaluation')}}
+            </th>
+            <th title="Broadcasted: 03/05/2019" scope="col" v-on:click="toggleSorting('rankEp1')">Ep.
+              1{{getSortIcon('rankEp1')}}</th>
+            <th title="Broadcasted: 10/05/2019" scope="col" v-on:click="toggleSorting('rankEp2')">Ep.
+              2{{getSortIcon('rankEp2')}}</th>
+            <th title="Broadcasted: 17/05/2019" scope="col" v-on:click="toggleSorting('rankEp3')">Ep.
+              3{{getSortIcon('rankEp3')}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="row in dataTable">
+            <td>{{row.name}}</td>
+            <td>{{row.age}}</td>
+            <td>{{row.agencyName}}</td>
+            <td class="ctn" v-html="getLetter(row.evaluation)">
+            <td class="ctn" v-html="getLetter(row.reevaluation)"></td>
+            <td class="minWidth">{{row.rankEp1}}</td>
+            <td class="minWidth" v-html="getRank(row, 2)"></td>
+            <td class="minWidth" v-html="getRank(row, 3)"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="footer">
+      <p class="footerText">Contact: <a href="mailto:Produce-X101@outlook.com">Produce-X101@outlook.com</a> <br> Source:
+        <a href="https://en.wikipedia.org/wiki/List_of_Produce_X_101_contestants">Wikipedia</a></p>
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>
