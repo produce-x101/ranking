@@ -60,6 +60,10 @@
               2{{getSortIcon('rankEp2')}}</th>
             <th title="Broadcasted: 17/05/2019" scope="col" v-on:click="toggleSorting('rankEp3')">Ep.
               3{{getSortIcon('rankEp3')}}</th>
+            <th title="Broadcasted: 31/05/2019" scope="col" v-on:click="toggleSorting('rankEp5')">Ep.
+              5{{getSortIcon('rankEp5')}}</th>
+            <th title="Broadcasted: 07/06/2019" scope="col" v-on:click="toggleSorting('rankEp6')">Ep.
+              6{{getSortIcon('rankEp6')}}</th>
           </tr>
         </thead>
         <tbody>
@@ -72,6 +76,8 @@
             <td class="minWidth">{{row.rankEp1}}</td>
             <td class="minWidth" v-html="getRank(row, 2)"></td>
             <td class="minWidth" v-html="getRank(row, 3)"></td>
+            <td class="minWidth" v-html="getRank(row, 5)"></td>
+            <td class="minWidth" v-html="getRank(row, 6)"></td>
           </tr>
         </tbody>
       </table>
