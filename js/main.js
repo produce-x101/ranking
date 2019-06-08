@@ -70,6 +70,9 @@ var app = new Vue({
         },
         getRank(row, currentEp) {
             var rankBefore = row["rankEp" + (currentEp - 1)];
+            
+            if (currentEp == 5) rankBefore = row["rankEp" + 3];
+
             var rankNow = row["rankEp" + currentEp];
 
             if (row["droppedAt"] != null && row["droppedAt"] < currentEp) {
@@ -100,7 +103,7 @@ var app = new Vue({
                     for (var k in json) {
                         this.dataTable.push(json[k]);
                     }
-                    this.toggleSorting('rankEp3');
+                    this.toggleSorting('rankEp6');
                 });
         }
     },
